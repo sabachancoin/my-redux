@@ -19,10 +19,9 @@ export default function TodoApp({task, tasks, inputTask, addTask, resetTask, red
                 </ToolBar>
             </AppBar>
             <div style={{padding: '16px'}}>
-                <Input onChange={(e) => inputTask(e.target.value)}/>
+                <Input value={task} onChange={(e) => inputTask(e.target.value)}/>
                 <Button raised color="primary" onClick={() => addTask(task)}>add</Button>
                 <List>
-                    <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={300}>
                     {
                         tasks.map(function(item, i){
                             return(
@@ -32,7 +31,6 @@ export default function TodoApp({task, tasks, inputTask, addTask, resetTask, red
                             );
                         })
                     }
-                    </ReactCSSTransitionGroup>
                 </List>
                 <Button raised color="secondary" onClick={() => resetTask()}>reset</Button>
             </div>
